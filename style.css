@@ -4,10 +4,44 @@ body{
     justify-content: center;
 }
 
-#calculator{
-    background-color: gray;
+#display{
+    height: 80px;
+    width: 350px;
+    font-size: 40px;
 }
 
-#num-container{
-    display: grid;
+#calculator{
+    background-color: gray;
+    height: auto;
+    width: auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }
+
+#grid-container{
+    display: grid;
+    grid-auto-rows: 80px;
+    grid-template-columns: repeat(4, 80px);
+    grid-gap: 8px 8px;
+}
+
+.grid-item{
+    font-size: 35px;
+}
+
+#option-container{
+    display: grid;
+    grid-auto-rows: 60px;
+    grid-template-columns: repeat(2, 170px);
+    grid-gap: 8px 8px;
+
+}
+
+.option{
+    font-size: 30px;
+}
+
