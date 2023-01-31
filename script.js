@@ -1,6 +1,8 @@
 const display = document.getElementById('display');
 const numbers = document.getElementsByClassName('numbers');
 const operators = document.getElementsByClassName('operators');
+const clearBtn = document.getElementById('clear');
+const deleteBtn = document.getElementById('delete');
 let num1 = null;
 let num2 = null;
 
@@ -29,11 +31,28 @@ function operate(operator){
         display.value = mathOperations(operator, num1, num2);
         num1 = null;
     }
+
+}
+
+function clear(){
+    num1 = null;
+    num2 = null;
+    display.value = '';
+}
+
+function deleteSpc(){
+    display.value = (display.value).slice(0, -1);
+    if ((display.value).length <=0){
+        display.value = 0;
+    }
 }
 
 function calculator(){
     for (let i = 0; i < numbers.length; i++){
         numbers[i].addEventListener('click', function(){
+            if (display.value == 0){
+                display.value = "";
+            };
             display.value += this.value;
         })};
     for (let i = 0; i < operators.length; i++){
@@ -44,3 +63,5 @@ function calculator(){
 
 
 calculator();
+clearBtn.addEventListener('click', clear);
+deleteBtn.addEventListener('click', deleteSpc)
