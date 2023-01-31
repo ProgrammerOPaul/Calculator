@@ -1,51 +1,46 @@
 const display = document.getElementById('display');
+const numbers = document.getElementsByClassName('numbers');
+const operators = document.getElementsByClassName('operators');
+let num1 = null;
+let num2 = null;
 
-function add(num1, num2){
-    return num1 + num2
-}
-
-function subtract(num1, num2){
-    return num1 - num2
-}
-
-function multiply(num1, num2){
-    return num1 * num2
-}
-
-function divide(num1, num2){
-    return num1 / num2
-}
-
-function operate(operator, num1, num2){
+function mathOperations(operator, num1, num2){
     switch(operator){
         case '+':
-            console.log(add(3,5));
-            break;
+            return num1 + num2;
 
         case '-':
-            console.log(subtract(3,5));
-            break;
+            return num1 - num2;
 
-        case '+':
-            console.log(multiply(3,5));
-            break;
+        case '*':
+            return num1 * num2;
 
-        case '+':
-            console.log(divide(3,5));
-            break;
+        case '/':
+            return num1 / num2;
+    }};
+
+function operate(operator){
+    if (num1 == null){
+        num1 = parseInt(display.value);
+        display.value = "";
+    }
+    else{
+        num2 = parseInt(display.value);
+        display.value = mathOperations(operator, num1, num2);
+        num1 = null;
     }
 }
 
 function calculator(){
-    const numbers = document.getElementsByClassName('numbers');
-    const operators = document.getElementsByClassName('')
     for (let i = 0; i < numbers.length; i++){
         numbers[i].addEventListener('click', function(){
             display.value += this.value;
-        })
-    }
-
+        })};
+    for (let i = 0; i < operators.length; i++){
+        operators[i].addEventListener('click', function(){
+            operate(this.value);
+        })};
 }
 
 
-calculator()
+calculator();
