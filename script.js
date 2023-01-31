@@ -37,7 +37,7 @@ function operate(operator){
 function clear(){
     num1 = null;
     num2 = null;
-    display.value = '';
+    display.value = 0;
 }
 
 function deleteSpc(){
